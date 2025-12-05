@@ -5,41 +5,42 @@
     <title>Conditional Example</title>
 </head>
 <body>
-<form action="#"  method="post">
-    <label for="password">New Password</label>
-    <input type="password" name="password" id="password" onkeydown="checkLength()">
+<form action="#" method="post">
+    <label for="passwd">New Password</label>
+    <input type="password" name="passwd" id="passwd" onkeydown="checkLength()">
     <div id="length"></div>
     <br />
-    <label for="password2">Confirm Password</label>
-    <input type="password" name="password2" id="password2" onchange="checkPass()">
-    <div id="val"></div>
+    <label for="passwd2">Confirm Password</label>
+    <input type="password" name="passwd2" id="passwd2" onchange="checkMatch()">
+    <div id="eval"></div>
 </form>
-
-
-
 <script>
     // Check the length of the first password field
     function checkLength(){
-        len = document.getElementById("password").value.length;
+        len = document.getElementById("passwd").value.length;
         // Minimum length 8
-        if((len+1)<8){
-            document.getElementById("length").innerHTML= "<font color=red>Password must be atleast 8 characters</font>";
-        } else {
-            document.getElementById("length").innerHTML= "<font color=green>Password is strong</font>"
+        if((len + 1) < 8){
+            document.getElementById("length").innerHTML = "<font color='red'>Password must be at least 8 characters</font>";
+        }else{
+            document.getElementById("length").innerHTML = "<font color='green'>Password is strong</font>";
         }
+
     }
 
     // Verify password and confirm password are congruent
-    function checkPass(){
-        passwd1 = document.getElementById("password").value;
-        passwd2 = document.getElementById("password2").value;
+    function checkMatch(){
+        passwd = document.getElementById("passwd").value;
+        passwd2 = document.getElementById("passwd2").value;
 
-        if(passwd1==passwd2){
-            document.getElementById("val").innerHTML = "<font color='green'>Passwords match.</font>"
-        } else{
-            document.getElementById("val").innerHTML = "<font color='red'>Passwords do not match.</font>"
+
+
+        if(passwd === passwd2){
+            document.getElementById("eval").innerHTML = "<font color='green'>Passwords match.</font>";
+        }else{
+            document.getElementById("eval").innerHTML = "<font color='red'>Passwords do not match.</font>";
         }
     }
+
 </script>
 </body>
 </html>

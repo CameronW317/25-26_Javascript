@@ -5,30 +5,25 @@
     <title>Palindrome Validator</title>
 </head>
 <body>
-<!--
- 1.Make a text box and button
- 2.Figure out if palindrome
- 3. Green if good, Red if not
 
- -->
 <input id="text" type="text" placeholder="Type Here"><br />
 <button onclick="palindromeTest()">Test</button><br />
 <div id="message"></div>
+
 <script>
+    function palindromeTest() {
+        const originalString = document.getElementById('text').value;
+        const reversedString = originalString.split('').reverse().join('');
+        if (originalString === reversedString) {
 
-    const originalString = document.getElementById('originalStringInput').value;
-
-
-    const reversedString = originalString.split('').reverse().join('');
-    function palindromeTest(){
-        if(originalString == reversedString){
-            document.getElementById("message").innerHTML = "<font color='green'>YES<font";
-
-        } else{
-            document.getElementById("message").innerHTML = "<font color='red'>NO<font";
+            document.getElementById("message").innerHTML =
+                "<font color='green'>YES</span>";
+        } else {
+            document.getElementById("message").innerHTML =
+                "<font color='red'>NO</font>";
         }
-
     }
 </script>
+
 </body>
 </html>
